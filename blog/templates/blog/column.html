@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+{% block title %}
+{{ column.title }}
+{% endblock title %}
+ {% block css %}
+<link href="{% static 'css/4-col-portfolio.css' %}" rel="stylesheet" type="text/css">
+ {% endblock css %}
+
+
+{% block content %}
+
+
+    <!-- Heading Row -->
+      <div class="row my-4" style="margin-left: 0px;">
+        <div class="col-lg-8">
+          <img class="img-fluid rounded" src="/media/{{ column.column_img }}" alt="" style="width:900px;">
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+          <h1>{{ column.name }}</h1>
+          <p>{{ column.intro }}</p>
+          <a class="btn btn-primary btn-lg" href="/column" style="border-radius:5px;">return</a>
+        </div>
+        <!-- /.col-md-4 -->
+      </div>
+      <!-- /.row -->
+
+
+
+ <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          {% for column in nav_display_columns %}
+              <li><a href="{{ column.get_absolute_url }}">{{ column.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    {% for article in  column.article_set.all %}
+
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="{{ article.get_absolute_url }}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+              </h4>
+              <p class="card-text"> {{ article.content | safe }}</p>
+            </div>
+          </div>
+        </div>
+
+
+
+    {% endfor %}
+
+{% endblock content %}
+
+
+
+
+
+

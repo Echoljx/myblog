@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+{% block title %} 所有文章 {% endblock title %}
+
+ {% block css %}
+<link href="{% static 'css/4-col-portfolio.css' %}" rel="stylesheet" type="text/css">
+ {% endblock css %}
+
+{% block content %}
+
+     <!-- Page Heading -->
+    <div style="display: block;width: 100%;margin-left: 15px;">
+      <h1 class="my-4">所有文章
+        <small>All articles</small>
+      </h1>
+    </div>
+ <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          {% for column in nav_display_columns %}
+              <li><a href="{{ column.get_absolute_url }}">{{ column.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    {% for article in  articles %}
+
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="{{ article.get_absolute_url }}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+              </h4>
+              <p class="card-text"> {{ article.content | safe | truncatechars_html:50 }}</p>
+            </div>
+          </div>
+        </div>
+
+
+
+    {% endfor %}
+
+{% endblock content %}

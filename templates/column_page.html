@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+{% block title %} 首页 {% endblock title %}
+ {% block css %}
+{#<link href="{% static 'css/1-col-portfolio.css' %}" rel="stylesheet" type="text/css">#}
+ {% endblock css %}
+{% block js %}
+
+{% endblock js %}
+
+{% block content %}
+    <div class="col-lg-10 col-md-10 mx-auto">
+     <div class="col-lg-10 col-md-10 mx-auto">
+        <!-- Page Heading -->
+    <h1 class="my-4">专栏页
+        <small>All columns</small>
+    </h1>
+
+ <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          {% for column in nav_display_columns %}
+              <li><a href="{{ column.get_absolute_url }}">{{ column.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+<ul style="padding-left: 0px;">
+    {% for column in  home_display_columns %}
+    <div class="row">
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="/media/{{ column.column_img }}" alt="" style="width: 467px;height:250px">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h3>{{ column.name }}</h3>
+          <p>{{ column.intro }}</p>
+          <a class="btn btn-primary" href="{{ column.get_absolute_url }}" style="border-radius:5px;">进入专栏</a>
+        </div>
+    </div>
+      <!-- /.row -->
+
+      <hr>
+    {% endfor %}
+</ul>
+    </div>
+    </div>
+{% endblock content %}
