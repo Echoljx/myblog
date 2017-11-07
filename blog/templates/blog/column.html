@@ -10,8 +10,6 @@
 
 
 {% block content %}
-
-
     <!-- Heading Row -->
       <div class="row my-4" style="margin-left: 0px;">
         <div class="col-lg-8">
@@ -27,8 +25,6 @@
       </div>
       <!-- /.row -->
 
-
-
  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           {% for column in nav_display_columns %}
@@ -39,17 +35,23 @@
 
     {% for article in  column.article_set.all %}
 
-        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+       <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="{{ article.get_absolute_url }}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <a href="{{ article.get_absolute_url }}" ><img class="card-img-top" src="/media/{{ article.article_img }}" alt="" style="width: 253.4px;height:200px;"></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
               </h4>
-              <p class="card-text"> {{ article.content | safe }}</p>
+              <p class="card-text"> {{ article.content | safe | truncatechars_html:40 }}</p>
+                <span class="fa-stack fa-sl" style="font-size: 10px;display: inline-block;">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-tag fa-stack-1x fa-inverse" ></i>
+            </span>
+            <span>{{ article.tag }}</span>
             </div>
           </div>
         </div>
+
 
 
 

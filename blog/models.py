@@ -36,6 +36,8 @@ class Column(models.Model):
 class Article(models.Model):
     column = models.ManyToManyField(Column, verbose_name='归属专栏')
 
+    tag = models.CharField('标签', max_length=256,default=u'')
+
     title = models.CharField('标题', max_length=256)
 
     article_img = models.ImageField(upload_to='article_img', default='pic_folder/None/no_image.pig')

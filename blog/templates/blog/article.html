@@ -8,6 +8,12 @@
 {% block content %}
      <div class="col-lg-10 col-md-10 mx-auto">
 <h1>文章标题： {{ article.title }}</h1><small>{{ article.pub_date }}</small>
+           <span class="fa-stack fa-sl" style="font-size: 10px;display: inline-block;margin-left: 20px;">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-tag fa-stack-1x fa-inverse" ></i>
+            </span>
+            <span>{{ article.tag }}</span>
+         <span  style="margin-left: 20px;">By : {{ article.author }}</span>
 <div id="main">
     {{ article.content | safe }}
 </div>
