@@ -10,7 +10,7 @@ TOOLBARS_SETTINGS = {
 
 # 默认的Ueditor设置，请参见ueditor.config.js
 UEditorSettings = {
-    "toolbars": TOOLBARS_SETTINGS["normal"],
+    "toolbars": TOOLBARS_SETTINGS["besttome"],
     "autoFloatEnabled": False,
     # 默认保存上传文件的命名方式
     "defaultPathFormat": "%(basename)s_%(datetime)s_%(rnd)s.%(extname)s"

@@ -9,21 +9,21 @@
     <div class="col-lg-10 col-md-10 mx-auto">
         <!-- Page Heading -->
 <h1 class="my-4">最新文章</h1>
-<ul style="padding-left: 0px;">
+<ul style="padding-left: 0;">
      {% for article in get_recent_article %}
     <div class="row">
         <div class="col-md-4">
             <img class="img-fluid rounded mb-3 mb-md-0" src="/media/{{ article.article_img }}" alt="" style="width: 200px;height:200px">
         </div>
         <div class="col-md-8">
-          <h3 style="display: inline-block">{{ article.title }}</h3>
-            <span style="font-size: 10px;display: inline-block;margin-left: 20px;">{{ article.pub_date | date:'F,j, Y' }}</span>
+          <h3>{{ article.title }}</h3>
+            <span style="font-size: 10px;display: inline-block;">{{ article.pub_date | date:'F,j, Y' }}</span>
             <span class="fa-stack fa-sl" style="font-size: 10px;display: inline-block;margin-left: 20px;">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-tag fa-stack-1x fa-inverse" ></i>
             </span>
             <span>{{ article.tag }}</span>
-          <p>{{ article.content | safe | truncatechars_html:60 }}</p>
+          <div style="margin-bottom: 20px;margin-top: 15px;">{{ article.content | safe | truncatechars_html:60 }}</div>
           <a class="btn btn-primary " href="{{ article.get_absolute_url }}" style="border-radius:5px;">查看更多</a>
         </div>
     </div>

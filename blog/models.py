@@ -50,7 +50,7 @@ class Article(models.Model):
     author = models.ForeignKey('auth.User', blank=True, null=True, verbose_name='作者')
     content = UEditorField('内容', height=300, width=1000,
                            default=u'', blank=True, imagePath="uploads/images/",
-                           toolbars='besttome', filePath='uploads/files/')
+                           toolbars='full', filePath='uploads/files/')
 
     published = models.BooleanField('正式发布', default=True)
 

@@ -7,8 +7,6 @@
  {% block css %}
 <link href="{% static 'css/4-col-portfolio.css' %}" rel="stylesheet" type="text/css">
  {% endblock css %}
-
-
 {% block content %}
     <!-- Heading Row -->
       <div class="row my-4" style="margin-left: 0px;">
@@ -32,9 +30,7 @@
           {% endfor %}
         </ul>
       </div>
-
     {% for article in  column.article_set.all %}
-
        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="{{ article.get_absolute_url }}" ><img class="card-img-top" src="/media/{{ article.article_img }}" alt="" style="width: 253.4px;height:200px;"></a>
@@ -51,12 +47,7 @@
             </div>
           </div>
         </div>
-
-
-
-
     {% endfor %}
-
 {% endblock content %}
 
 
