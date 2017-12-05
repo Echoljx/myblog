@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{#{% load static %}#}
+{% load static %}
 {% load staticfiles %}
 <html lang="zh-Hans">
 
@@ -32,7 +32,6 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
   </head>
  {% block css %}
 
@@ -50,7 +49,7 @@ var _hmt = _hmt || [];
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/blog">首页</a>
+              <a class="nav-link" href="/">首页</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/column">专栏</a>
@@ -92,7 +91,7 @@ var _hmt = _hmt || [];
 
     <!-- Footer -->
     <footer>
-      <div class="container">
+      <div class="container" style="text-align: center">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <ul class="list-inline text-center">
@@ -105,12 +104,13 @@ var _hmt = _hmt || [];
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="https://www.facebook.com/yue.echo.71" target="_blank">
+{#                <a href="#" target="_blank">#}
                   <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    <i  class="fa fa-circle fa-stack-2x"></i>
+                    <i  id="cwechat" class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                      <i id="wechat" style="display:none;position: absolute;width: 160px;height:160px;top: -165px;left: -60px;background: url({% static 'img/wechat.jpg' %});background-size: cover"></i>
                   </span>
-                </a>
+{#                </a>#}
               </li>
               <li class="list-inline-item">
                 <a href="http://weibo.com/u/3374080124" target="_blank">
@@ -129,7 +129,9 @@ var _hmt = _hmt || [];
                 </a>
               </li>
             </ul>
-            <p class="copyright text-muted">Copyright &copy; My Website 2017</p>
+              <br>
+            <span class="copyright text-muted">Copyright © 2017 Powered by echoljx All Rights Reserved.</span>
+              <a href="http://www.miitbeian.gov.cn/"  target="_blank">粤ICP备17146837号</a>
           </div>
         </div>
       </div>
@@ -138,11 +140,30 @@ var _hmt = _hmt || [];
     <!-- Bootstrap core JavaScript -->
     <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
-
+    <script src="{% static 'js/jquery.goup.min.js' %}"></script>
     <!-- Custom scripts for this template -->
     <script src="{% static 'js/clean-blog.min.js' %}"></script>
-
+      <script>
+      var aa=document.getElementById('cwechat');
+      var bb=document.getElementById('wechat');
+      aa.onmousemove=function(){
+          bb.style.display = 'inline-block';
+      };
+      aa.onmouseout=function(){
+          bb.style.display = 'none';
+      }
+  </script>
+  <script type="text/javascript">
+        $(document).ready(function () {
+            $.goup({
+                trigger: 100,
+                bottomOffset: 150,
+                locationOffset: 100,
+                title: '返回顶部',
+                titleAsText: true
+            });
+        });
+</script>
   </body>
 
 </html>

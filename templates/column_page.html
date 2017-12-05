@@ -28,7 +28,7 @@
     {% for column in  home_display_columns %}
     <div class="row">
         <div class="col-md-7">
-          <a href="#">
+          <a href="{{ column.get_absolute_url }}">
             <img class="img-fluid rounded mb-3 mb-md-0" src="/media/{{ column.column_img }}" alt="" style="width: 467px;height:250px">
           </a>
         </div>

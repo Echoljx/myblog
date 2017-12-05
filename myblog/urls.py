@@ -20,8 +20,8 @@ import blog.views as bv
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', bv.firstpage, name='firstpage'),
-    url(r'^blog/$', bv.index, name='index'),
+    # url(r'^$', bv.firstpage, name='firstpage'),
+    url(r'^$', bv.index, name='index'),
     url(r'^message/$', bv.message, name='message'),
     url(r'^ueditor/', include('DjangoUeditor.urls' )),
     url(r'^column/$', bv.column_page, name='column_page'),

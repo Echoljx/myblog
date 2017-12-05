@@ -121,8 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+# 加入下面的配置
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
 
 # upload folder
 MEDIA_URL = '/media/'
